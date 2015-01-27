@@ -33,7 +33,7 @@ var aliases = {};
     default:
       if (query.indexOf('add') == 0)
         addAlias(query);
-      else if (query.indexOf('nuke') == 0)
+      else if (query.indexOf('nuke') == 0 || query.indexOf('del') == 0)
         nukeAlias(query);
       else
         redirectTo(query);
@@ -125,8 +125,8 @@ function showList() {
     a.target = '_blank';
 
     var del = document.createElement('a');
-    del.className = 'meow nuke';
-    del.innerHTML = 'x';
+    del.className = 'meow nuke red';
+    del.innerHTML = '[delete]';
     del.href = '?nuke ' + name;
 
     li.appendChild(span);
@@ -141,8 +141,9 @@ function showList() {
   span.className = 'red';
   span.innerHTML = ' [for reals. no confirmation]';
   var a = document.createElement('a');
-  a.className = 'meow';
-  a.innerHTML = 'delete all aliases';
+  a.className = 'meow red';
+  a.style.paddingRight = "0";
+  a.innerHTML = '[delete all aliases. for reals. no undo]';
   a.href = '?nukeall';
   a.appendChild(span);
   li.appendChild(a);
