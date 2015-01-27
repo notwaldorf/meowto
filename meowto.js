@@ -33,7 +33,6 @@ var aliases = {};
 })();
 
 function addAlias(query) {
-  // Get rid of the verb. Also lol what even, arrow.
   var cleanQuery = queryWithoutCommand(query, 'add');
   if (cleanQuery == '') {
     showError();
@@ -54,8 +53,13 @@ function addAlias(query) {
 }
 
 function nukeAlias(query) {
-  var cleanQuery = query.split('+')[1];
-  delete localStorage[cleanQuery];
+  var cleanQuery = queryWithoutCommand(query, 'nuke');
+  if (cleanQuery == '') {
+    showError();
+    return;
+  }
+
+  delete aliases[cleanQuery];
   updateLocalStorage();
   showList()
 }
@@ -100,7 +104,7 @@ function showList() {
     var del = document.createElement('a');
     del.className = "meow";
     del.innerText = "x";
-    del.href = "?nuke name";
+    del.href = "?nuke " + name;
 
     li.appendChild(span);
     li.appendChild(a);
