@@ -45,6 +45,13 @@ function addAlias(query) {
   }
 
   var parsedQuery = cleanQuery.split('->');
+
+  if (parsedQuery.length != 2) {
+    show('error');
+    show('help');
+    return;
+  }
+
   var name = parsedQuery[0].trim();
   var url = parsedQuery[1].trim();
 
