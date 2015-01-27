@@ -16,6 +16,9 @@ var aliases = {};
       showList();
       show('help');
       break;
+    case 'setup':
+      show('setup');
+      show('help');
     case 'list':
       showList();
       break;

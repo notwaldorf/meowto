@@ -66,6 +66,9 @@ input {
   padding-bottom: 6px;
 }
 
+hr {
+  color: #fde100;
+}
 ::selection {
 background: #fde100;
 }
