@@ -55,7 +55,7 @@ li {
 }
 
 .red {
-  color: #FF4136;
+  color: #FF4136 !important;
 }
 
 a:link, a:visited {
@@ -72,9 +72,7 @@ a:hover {
 }
 
 .nuke {
-  color: #535353 !important;
-  margin-left: 15px;
-  padding: 5px;
+  padding-left: 10px;
 }
 
 input {
