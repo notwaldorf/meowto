@@ -9,13 +9,21 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
   overflow: auto;
 }
 
 .box {
   margin-bottom: 50px;
+}
+
+#footer {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 2px solid #fde100;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -46,6 +54,10 @@ li {
   padding-right: 6px;
 }
 
+.red {
+  color: #FF4136;
+}
+
 a:link, a:visited {
   color: #0074D9;
   text-decoration: none;
@@ -69,6 +81,7 @@ input {
 hr {
   color: #fde100;
 }
+
 ::selection {
 background: #fde100;
 }
