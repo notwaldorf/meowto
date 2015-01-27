@@ -1,4 +1,5 @@
 # meowto
+###like goto but for cats
 
 [meowto](http://meowni.ca/meowto) is a client-side URL shortener because ain't nobody got time for bookmarks. Also, typing `meowto email` just looks cooler than typing a URL, and that's really all that matters. 
 
