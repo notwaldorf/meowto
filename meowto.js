@@ -33,7 +33,7 @@ var aliases = {};
     default:
       if (query.indexOf('add') == 0)
         addAlias(query);
-      else if (query.indexOf('nuke') == 0 || query.indexOf('del') == 0)
+      else if (query.indexOf('nuke') == 0)
         nukeAlias(query);
       else
         redirectTo(query);
