@@ -32,35 +32,6 @@ var aliases = {};
 }
 })();
 
-function showList() {
-  document.getElementById('list-box').hidden = false;
-  if (Object.keys(aliases).length == 0)
-    document.getElementById('no-items').hidden = false;
-
-  //<li><span class="meow">goog</span>
-  //<a href="http://www.google.com">http://www.google.com</a>
-}
-
-function showError() {
-  document.getElementById('error-box').hidden = false;
-  showHelp();
-}
-function showHelp() {
-  document.getElementById('help-box').hidden = false;
-}
-
-function showAdd() {
-  document.getElementById('add-box').hidden = false;
-}
-
-function queryWithoutCommand(query, command) {
-  var cleanQuery = decodeURIComponent(query.trim());
-
-  if (cleanQuery.indexOf(command) != 0)
-    return ''
-  return cleanQuery.substring(command.length).trim();
-}
-
 function addAlias(query) {
   // Get rid of the verb. Also lol what even, arrow.
   var cleanQuery = queryWithoutCommand(query, 'add');
@@ -97,6 +68,61 @@ function redirectTo(query) {
     showAdd();
 }
 
+function queryWithoutCommand(query, command) {
+  var cleanQuery = decodeURIComponent(query.trim());
+
+  if (cleanQuery.indexOf(command) != 0)
+    return ''
+  return cleanQuery.substring(command.length).trim();
+}
+
+function showList() {
+  document.getElementById('list-box').hidden = false;
+  if (Object.keys(aliases).length == 0) {
+    document.getElementById('no-items').hidden = false;
+    return;
+  }
+
+  var ul = document.getElementById('list')
+
+  for (var name in aliases) {
+    var li = document.createElement('li');
+
+    var span = document.createElement('span');
+    span.className = "meow";
+    span.innerText = name;
+
+    var a = document.createElement('a');
+    a.innerText = aliases[name];
+    a.href = aliases[name];
+    a.target = '_blank';
+
+    var del = document.createElement('a');
+    del.className = "meow";
+    del.innerText = "x";
+    del.href = "?nuke name";
+
+    li.appendChild(span);
+    li.appendChild(a);
+    li.appendChild(del);
+
+    ul.appendChild(li);
+  }
+}
+
+
 function updateLocalStorage() {
   localStorage[MEOWTO] = JSON.stringify(aliases);
+}
+
+function showError() {
+  document.getElementById('error-box').hidden = false;
+  showHelp();
+}
+function showHelp() {
+  document.getElementById('help-box').hidden = false;
+}
+
+function showAdd() {
+  document.getElementById('add-box').hidden = false;
 }
