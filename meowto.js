@@ -82,6 +82,7 @@ function nukeAlias(query) {
 }
 
 function redirectTo(query) {
+  query = decodeURIComponent(query.trim());
   var url = aliases[query];
   if (url && url != '')
     window.location.replace(url);
