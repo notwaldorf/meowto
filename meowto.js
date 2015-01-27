@@ -80,6 +80,8 @@ function redirectTo(query) {
 
 function queryWithoutCommand(query, command) {
   var cleanQuery = decodeURIComponent(query.trim());
+  // You might have +s. You shouldn't.
+  cleanQuery = cleanQuery.replace(/\+/g, ' ');
 
   if (cleanQuery.indexOf(command) != 0)
     return ''
