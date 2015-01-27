@@ -41,6 +41,10 @@ function showList() {
   //<a href="http://www.google.com">http://www.google.com</a>
 }
 
+function showError() {
+  document.getElementById('error-box').hidden = false;
+  showHelp();
+}
 function showHelp() {
   document.getElementById('help-box').hidden = false;
 }
@@ -49,18 +53,31 @@ function showAdd() {
   document.getElementById('add-box').hidden = false;
 }
 
+function queryWithoutCommand(query, command) {
+  var cleanQuery = decodeURIComponent(query.trim());
+
+  if (cleanQuery.indexOf(command) != 0)
+    return ''
+  return cleanQuery.substring(command.length).trim();
+}
+
 function addAlias(query) {
   // Get rid of the verb. Also lol what even, arrow.
-  var cleanQuery = query.split('+')[1].split('-%3E');
+  var cleanQuery = queryWithoutCommand(query, 'add');
+  if (cleanQuery == '') {
+    showError();
+    return;
+  }
 
-  var alias = cleanQuery[0];
-  var url = cleanQuery[1];
+  var parsedQuery = cleanQuery.split('->');
+  var name = parsedQuery[0].trim();
+  var url = parsedQuery[1].trim();
 
   // If there wasn't an http://, add one.
-  if (alias.indexOf('http') == -1)
-    alias = "http://" + alias.trim();
+  if (url.indexOf('http') == -1)
+    url = "http://" + url;
 
-  aliases[alias] = url.trim();
+  aliases[name] = url;
   updateLocalStorage();
   showList();
 }
