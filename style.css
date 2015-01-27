@@ -72,8 +72,9 @@ a:hover {
 }
 
 .nuke {
-  color: #535353;
-  padding-left: 15px;
+  color: #535353 !important;
+  margin-left: 15px;
+  padding: 5px;
 }
 
 input {
