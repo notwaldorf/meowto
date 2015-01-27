@@ -1,0 +1,71 @@
+body {
+  font-family: 'Lato';
+  font-size: 14px;
+  background: #fff;
+  color: #535353;
+  margin: 0px;
+  padding: 50px;
+  overflow: auto;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+#list-box, #help-box, #add-box {
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-family: 'Lato', 'Helvetica', Arial, sans-serif;
+  font-weight: 300;
+}
+
+.code {
+  padding: 5px;
+  font-family: monospace;
+  background-color: #fde100;
+  border-radius: 3px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  line-height: 25px;
+  font-size: 14px;
+}
+
+.meow {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: .2em;
+  padding-right: 6px;
+}
+
+a:link, a:visited {
+  color: #0074D9;
+  text-decoration: none;
+  padding: 5px;
+}
+
+a:hover {
+  background-color: #fde100;
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #333;
+  margin: 10px 0px;
+  width: 200px;
+  font-size: 16px;
+  padding-bottom: 6px;
+}
+
+::selection {
+background: #fde100;
+}
