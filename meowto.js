@@ -116,16 +116,16 @@ function showList() {
 
     var span = document.createElement('span');
     span.className = 'meow';
-    span.innerText = name;
+    span.innerHTML = name;
 
     var a = document.createElement('a');
-    a.innerText = aliases[name];
+    a.innerHTML = aliases[name];
     a.href = aliases[name];
     a.target = '_blank';
 
     var del = document.createElement('a');
     del.className = 'meow';
-    del.innerText = 'x';
+    del.innerHTML = 'x';
     del.href = '?nuke ' + name;
 
     li.appendChild(span);
@@ -138,12 +138,11 @@ function showList() {
   var li = document.createElement('li');
   var span = document.createElement('span');
   span.className = 'red';
-  span.innerText = ' [for reals. no confirmation]';
+  span.innerHTML = ' [for reals. no confirmation]';
   var a = document.createElement('a');
   a.className = 'meow';
-  a.innerText = 'delete all aliases';
+  a.innerHTML = 'delete all aliases';
   a.href = '?nukeall';
-  a.target = '_blank';
   a.appendChild(span);
   li.appendChild(a);
   ul.appendChild(li);
