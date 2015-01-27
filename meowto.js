@@ -137,15 +137,11 @@ function showList() {
   }
 
   var li = document.createElement('li');
-  var span = document.createElement('span');
-  span.className = 'red';
-  span.innerHTML = ' [for reals. no confirmation]';
   var a = document.createElement('a');
   a.className = 'meow red';
   a.style.paddingRight = "0";
   a.innerHTML = '[delete all aliases. for reals. no undo]';
   a.href = '?nukeall';
-  a.appendChild(span);
   li.appendChild(a);
   ul.appendChild(li);
 }
