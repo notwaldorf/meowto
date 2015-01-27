@@ -124,7 +124,7 @@ function showList() {
     a.target = '_blank';
 
     var del = document.createElement('a');
-    del.className = 'meow';
+    del.className = 'meow nuke';
     del.innerHTML = 'x';
     del.href = '?nuke ' + name;
 
