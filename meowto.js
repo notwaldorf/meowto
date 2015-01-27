@@ -82,7 +82,7 @@ function nukeAlias(query) {
 }
 
 function redirectTo(query) {
-  var url = localStorage[query];
+  var url = aliases[query];
   if (url && url != '')
     window.location.replace(url);
   else
@@ -100,7 +100,7 @@ function queryWithoutCommand(query, command) {
 }
 
 function redirectToList() {
-  window.location.replace('?list');  
+  window.location.replace('?list');
 }
 function showList() {
   document.getElementById('list-box').hidden = false;
