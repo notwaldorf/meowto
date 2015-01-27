@@ -26,6 +26,10 @@ var aliases = {};
     case 'halp':
       show('help');
       break;
+    case 'nukeall':
+      aliases = {};
+      updateLocalStorage();
+      redirectToList();
     default:
       if (query.indexOf('add') == 0)
         addAlias(query);
@@ -57,11 +61,11 @@ function addAlias(query) {
 
   // If there wasn't an http://, add one.
   if (url.indexOf('http') == -1)
-    url = "http://" + url;
+    url = 'http://' + url;
 
   aliases[name] = url;
   updateLocalStorage();
-  showList();
+  redirectToList();
 }
 
 function nukeAlias(query) {
@@ -74,7 +78,7 @@ function nukeAlias(query) {
 
   delete aliases[cleanQuery];
   updateLocalStorage();
-  showList()
+  redirectToList()
 }
 
 function redirectTo(query) {
@@ -95,6 +99,9 @@ function queryWithoutCommand(query, command) {
   return cleanQuery.substring(command.length).trim();
 }
 
+function redirectToList() {
+  window.location.replace('?list');  
+}
 function showList() {
   document.getElementById('list-box').hidden = false;
   if (Object.keys(aliases).length == 0) {
@@ -108,7 +115,7 @@ function showList() {
     var li = document.createElement('li');
 
     var span = document.createElement('span');
-    span.className = "meow";
+    span.className = 'meow';
     span.innerText = name;
 
     var a = document.createElement('a');
@@ -117,9 +124,9 @@ function showList() {
     a.target = '_blank';
 
     var del = document.createElement('a');
-    del.className = "meow";
-    del.innerText = "x";
-    del.href = "?nuke " + name;
+    del.className = 'meow';
+    del.innerText = 'x';
+    del.href = '?nuke ' + name;
 
     li.appendChild(span);
     li.appendChild(a);
@@ -127,6 +134,19 @@ function showList() {
 
     ul.appendChild(li);
   }
+
+  var li = document.createElement('li');
+  var span = document.createElement('span');
+  span.className = 'red';
+  span.innerText = ' [for reals. no confirmation]';
+  var a = document.createElement('a');
+  a.className = 'meow';
+  a.innerText = 'delete all aliases';
+  a.href = '?nukeall';
+  a.target = '_blank';
+  a.appendChild(span);
+  li.appendChild(a);
+  ul.appendChild(li);
 }
 
 function updateLocalStorage() {
