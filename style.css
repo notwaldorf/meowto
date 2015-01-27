@@ -66,6 +66,7 @@ a:link, a:visited {
 
 a:hover {
   background-color: #fde100;
+  border-radius: 3px;
   text-decoration: none;
 }
 
