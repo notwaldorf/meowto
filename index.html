@@ -13,7 +13,20 @@
 </head>
 <body>
   <div class="container">
-    <div id="list-box" hidden>
+    <div id="setup-box" class="box" hidden>
+      <h1>Setup up meowto links:</h1>
+      <p><b>TL; DR: </b> Add a custom search engine with the url
+        <a href="http://meowni.ca/meowto/?%s">http://meowni.ca/meowto/?%s</a>
+      </p>
+      <ul>
+        <li><span class="meow">chrome</span>
+            set it up in chrome://settings/searchEngines</li>
+        <li><span class="meow">firefox/safari</span>
+            i don't know yet :(</li>
+      </ul>
+    </div>
+
+    <div id="list-box" class="box" hidden>
       <h1>Your aliases:</h1>
       <div id="no-items" hidden>You have no aliases. Add some?</p>
         <p><span class="code">meowto add &lt;<b>alias</b>&gt; -> &lt;<b>some-url.com</b>&gt;</span></p>
@@ -24,12 +37,13 @@
       <p>To use an alias, type <span class="code">meowto &lt;<b>alias</b>&gt;</span></p>
     </div>
 
-    <div id="error-box" hidden>
+    <div id="error-box" class="box" hidden>
       <h1>Oops! That wasn't a valid command :( </h1>
     </div>
-    
-    <div id="help-box" hidden>
+
+    <div id="help-box" class="box" hidden>
       <h1>Things you can do:</h1>
+      <p>If you have a custom search engine set up as <span class="code">meowto</span></p>
       <ul>
         <li><span class="code">meowto help</span></li>
         <li><span class="code">meowto list</span></li>
@@ -37,9 +51,20 @@
         <li><span class="code">meowto add &lt;<b>alias</b>&gt; -> &lt;<b>some-url.com</b>&gt;</span></li>
         <li><span class="code">meowto nuke &lt;<b>alias</b>&gt;</span></li>
       </ul>
+
+      <br>
+      <p>If you don't, use <span class="code">http://meowni.ca/meowto/?</span> instead</p>
+      <ul>
+        <li><span class="code">http://meowni.ca/meowto/?help</span></li>
+        <li><span class="code">http://meowni.ca/meowto/? list</span></li>
+        <li><span class="code">http://meowni.ca/meowto/?&lt;<b>alias</b>&gt;</span></li>
+        <li><span class="code">http://meowni.ca/meowto/?add &lt;<b>alias</b>&gt; -> &lt;<b>some-url.com</b>&gt;</span></li>
+        <li><span class="code">http://meowni.ca/meowto/?nuke &lt;<b>alias</b>&gt;</span></li>
+
+      </ul>
     </div>
 
-    <div id="add-box" hidden>
+    <div id="add-box" class="box" hidden>
       <h1>Oops, this alias does not exist. Add one?</h1>
       <p>
         <input id="add-alias" type="text" placeholder="add alias">

@@ -14,7 +14,7 @@ body {
   overflow: auto;
 }
 
-#list-box, #help-box, #add-box {
+.box {
   margin-bottom: 50px;
 }
 

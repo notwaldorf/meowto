@@ -12,15 +12,16 @@ var aliases = {};
 
   switch(query) {
     case '':
+      show('setup');
       showList();
-      showHelp();
+      show('help');
       break;
     case 'list':
       showList();
       break;
     case 'help':
     case 'halp':
-      showHelp();
+      show('help');
       break;
     default:
       if (query.indexOf('add') == 0)
@@ -35,7 +36,8 @@ var aliases = {};
 function addAlias(query) {
   var cleanQuery = queryWithoutCommand(query, 'add');
   if (cleanQuery == '') {
-    showError();
+    show('error');
+    show('help');
     return;
   }
 
@@ -55,7 +57,8 @@ function addAlias(query) {
 function nukeAlias(query) {
   var cleanQuery = queryWithoutCommand(query, 'nuke');
   if (cleanQuery == '') {
-    showError();
+    show('error');
+    show('help');
     return;
   }
 
@@ -69,7 +72,7 @@ function redirectTo(query) {
   if (url && url != '')
     window.location.replace(url);
   else
-    showAdd();
+    show('add');
 }
 
 function queryWithoutCommand(query, command) {
@@ -114,19 +117,10 @@ function showList() {
   }
 }
 
-
 function updateLocalStorage() {
   localStorage[MEOWTO] = JSON.stringify(aliases);
 }
 
-function showError() {
-  document.getElementById('error-box').hidden = false;
-  showHelp();
-}
-function showHelp() {
-  document.getElementById('help-box').hidden = false;
-}
-
-function showAdd() {
-  document.getElementById('add-box').hidden = false;
+function show(what) {
+  document.getElementById(what + '-box').hidden = false;
 }
